@@ -30,8 +30,51 @@ const industries = [
 export default function Home() {
   const featuredProjects = projectSeeds.filter((p) => p.featured);
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "How much does a commercial interior project cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Cost depends on space size, business type, and material tier. Most commercial interior projects range from ₹800 to ₹3500 per sq ft. Use our calculator to get a budget range and then speak with our team for a tailored estimate.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does commercial interior execution take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most projects are delivered in 30 to 90 days based on scope. Our factory-led workflow helps us control quality and timeline.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you provide warranty and post-handover support?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. ArtTech24 provides warranty coverage based on materials used and offers post-handover maintenance guidance for long-term durability.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which cities does ArtTech24 serve?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "ArtTech24 executes projects across Chennai, Coimbatore, Bangalore, and selected pan-India locations for high-value commercial spaces.",
+        },
+      },
+    ],
+  };
+
   return (
     <main className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <VisitorTracker path="/" />
 
       <section className={styles.hero}>
