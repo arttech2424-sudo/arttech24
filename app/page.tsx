@@ -56,10 +56,10 @@ export default function Home() {
                 <a href="tel:+919000000000" className={`${styles.callBtn} btn btn-outline-white`}>Call Us Now</a>
               </div>
               <div className={styles.heroStats}>
-                <div className={styles.heroStat}><strong><AnimatedCounter end={1253} suffix="+" /></strong><span>Projects Done</span></div>
-                <div className={styles.heroStat}><strong><AnimatedCounter end={750} suffix="+" /></strong><span>Happy Clients</span></div>
-                <div className={styles.heroStat}><strong><AnimatedCounter end={20} suffix="+" /></strong><span>Years Experience</span></div>
-                <div className={styles.heroStat}><strong><AnimatedCounter end={5} /></strong><span>Countries</span></div>
+                <div className={styles.heroStat}><strong><AnimatedCounter end={7000} suffix="+" /></strong><span>Projects Completed</span></div>
+                <div className={styles.heroStat}><strong><AnimatedCounter end={6500} suffix="+" /></strong><span>Happy Customers</span></div>
+                <div className={styles.heroStat}><strong><AnimatedCounter end={14} suffix="+" /></strong><span>Years Experience</span></div>
+                <div className={styles.heroStat}><strong><span>100–1,00,000 sq ft</span></strong><span>Project Range</span></div>
               </div>
             </div>
 
@@ -81,13 +81,15 @@ export default function Home() {
       <section className={styles.statsBand}>
         <div className={`container ${styles.statsGrid}`}>
           {[
-            { num: 1253, suffix: "+", label: "Projects Completed" },
-            { num: 750, suffix: "+", label: "Satisfied Clients" },
-            { num: 20, suffix: "+", label: "Years of Excellence" },
-            { num: 5, suffix: "", label: "Countries Served" },
+            { num: 7000, suffix: "+", label: "Projects Completed", static: null },
+            { num: 6500, suffix: "+", label: "Happy Customers", static: null },
+            { num: 14, suffix: "+ Yrs", label: "Experience", static: null },
+            { num: null, suffix: "", label: "Project Range", static: "100–1,00,000 sq ft" },
           ].map((s) => (
             <div className={styles.statItem} key={s.label}>
-              <strong><AnimatedCounter end={s.num} suffix={s.suffix} /></strong>
+              <strong>
+                {s.static ? s.static : <AnimatedCounter end={s.num!} suffix={s.suffix} />}
+              </strong>
               <span>{s.label}</span>
             </div>
           ))}
