@@ -248,7 +248,7 @@ export function CostCalculator() {
               Our team will call you within 24 hours to discuss your project in detail and give a precise quote.
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
-              <a href={`https://wa.me/919000000000?text=Hi, I used the cost calculator. I need ${input.designTier} interiors for my ${input.businessType} (${input.areaSqft} sq ft).`}
+              <a href={`https://wa.me/918110000533?text=Hi, I used the cost calculator. I need ${input.designTier} interiors for my ${input.businessType} (${input.areaSqft} sq ft).`}
                  target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 WhatsApp Us Now
               </a>

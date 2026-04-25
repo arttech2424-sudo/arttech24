@@ -71,7 +71,7 @@ export default function RootLayout({
               url: metadataBase.toString(),
               description:
                 "Commercial interior design brand delivering cafe, restaurant, retail, and hotel interiors at factory pricing.",
-              sameAs: ["https://wa.me/919000000000"],
+              sameAs: ["https://wa.me/918110000533"],
             }),
           }}
         />

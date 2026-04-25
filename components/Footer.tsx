@@ -25,7 +25,8 @@ export function Footer() {
           </div>
           <div className="footer-col">
             <h5>Contact</h5>
-            <p>+91 90000 00000</p>
+            <p><a href="tel:+918110000533">+91 8110000533</a></p>
+            <p><a href="https://wa.me/918110000533" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></p>
             <p>hello@arttech24.com</p>
             <p>1253+ Projects Delivered</p>
             <p>5 Countries Served</p>

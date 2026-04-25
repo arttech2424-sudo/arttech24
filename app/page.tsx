@@ -53,13 +53,13 @@ export default function Home() {
                 <TrackedLink href="/calculator" className="btn btn-primary" path="/" section="hero_cta" target="/calculator" label="Get Free Estimate">
                   Get Free Estimate
                 </TrackedLink>
-                <a href="tel:+919000000000" className={`${styles.callBtn} btn btn-outline-white`}>Call Us Now</a>
+                <a href="tel:+918110000533" className={`${styles.callBtn} btn btn-outline-white`}>Call Us Now</a>
               </div>
               <div className={styles.heroStats}>
                 <div className={styles.heroStat}><strong><AnimatedCounter end={7000} suffix="+" /></strong><span>Projects Completed</span></div>
                 <div className={styles.heroStat}><strong><AnimatedCounter end={6500} suffix="+" /></strong><span>Happy Customers</span></div>
                 <div className={styles.heroStat}><strong><AnimatedCounter end={14} suffix="+" /></strong><span>Years Experience</span></div>
-                <div className={styles.heroStat}><strong><span>100–1,00,000 sq ft</span></strong><span>Project Range</span></div>
+                <div className={styles.heroStat}><strong>100-100000</strong><span>Sq Ft Project Range</span></div>
               </div>
             </div>
 
@@ -84,7 +84,7 @@ export default function Home() {
             { num: 7000, suffix: "+", label: "Projects Completed", static: null },
             { num: 6500, suffix: "+", label: "Happy Customers", static: null },
             { num: 14, suffix: "+ Yrs", label: "Experience", static: null },
-            { num: null, suffix: "", label: "Project Range", static: "100–1,00,000 sq ft" },
+            { num: null, suffix: "", label: "Sq Ft Project Range", static: "100-100000" },
           ].map((s) => (
             <div className={styles.statItem} key={s.label}>
               <strong>
@@ -231,7 +231,7 @@ export default function Home() {
             <TrackedLink href="/calculator" className="btn btn-primary btn-lg" path="/" section="bottom_cta" target="/calculator" label="Calculate Cost Now">
               Calculate Cost Now
             </TrackedLink>
-            <a href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">WhatsApp Us</a>
+            <a href="https://wa.me/918110000533" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">WhatsApp Us</a>
           </div>
         </div>
       </section>
