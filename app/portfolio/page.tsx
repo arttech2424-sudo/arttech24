@@ -3,12 +3,15 @@ import { projectSeeds } from "@/lib/data";
 import { ProjectCard } from "@/components/ProjectCard";
 import { LeadForm } from "@/components/LeadForm";
 import { VisitorTracker } from "@/components/VisitorTracker";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Commercial Interior Design Portfolio | ArtTech24",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Commercial Interior Design Portfolio",
   description:
     "Explore cafe, restaurant, bakery, hotel, and retail commercial interior projects delivered by ArtTech24.",
-};
+  path: "/portfolio",
+  keywords: ["interior portfolio", "cafe interior project", "restaurant interior portfolio"],
+});
 
 export default function PortfolioPage() {
   return (

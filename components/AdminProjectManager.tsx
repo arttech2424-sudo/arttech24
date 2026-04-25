@@ -13,8 +13,23 @@ export type AdminProject = {
   tags: string[];
 };
 
-export function AdminProjectManager({ initialProjects }: { initialProjects: AdminProject[] }) {
+export type AdminInspiration = {
+  id: string;
+  title: string;
+  image: string;
+  url: string;
+  tags: string[];
+};
+
+export function AdminProjectManager({
+  initialProjects,
+  initialInspirations,
+}: {
+  initialProjects: AdminProject[];
+  initialInspirations: AdminInspiration[];
+}) {
   const [projects, setProjects] = useState(initialProjects);
+  const [inspirations, setInspirations] = useState(initialInspirations);
   const [status, setStatus] = useState("");
 
   async function addProject(event: FormEvent<HTMLFormElement>) {
@@ -67,6 +82,61 @@ export function AdminProjectManager({ initialProjects }: { initialProjects: Admi
     }
   }
 
+  async function addInspiration(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      title: String(formData.get("title") || "").trim(),
+      image: String(formData.get("image") || "").trim(),
+      url: String(formData.get("url") || "").trim(),
+      tags: String(formData.get("tags") || "")
+        .split(",")
+        .map((v) => v.trim())
+        .filter(Boolean),
+    };
+
+    const response = await fetch("/api/inspirations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      const created = data?.inspiration;
+      setInspirations((prev) => [
+        {
+          id: String(created?._id || Date.now()),
+          title: payload.title,
+          image: payload.image,
+          url: payload.url,
+          tags: payload.tags,
+        },
+        ...prev,
+      ]);
+      setStatus("Reference added.");
+      event.currentTarget.reset();
+    } else {
+      setStatus("Failed to add reference.");
+    }
+  }
+
+  async function removeInspiration(id: string) {
+    const response = await fetch("/api/inspirations", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+
+    if (response.ok) {
+      setInspirations((prev) => prev.filter((item) => item.id !== id));
+      setStatus("Reference deleted.");
+    } else {
+      setStatus("Delete failed.");
+    }
+  }
+
   return (
     <section className="card admin-manager">
       <h2>Media / Project Manager</h2>
@@ -94,6 +164,33 @@ export function AdminProjectManager({ initialProjects }: { initialProjects: Admi
               <p>{project.location} - {project.businessType}</p>
             </div>
             <button className="btn btn-small btn-danger" onClick={() => removeProject(project.slug)}>
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <hr style={{ margin: "22px 0", border: 0, borderTop: "1px solid var(--border)" }} />
+
+      <h2>Explore Reference Board</h2>
+      <p>Add reference images and links shown in Explore Ideas page.</p>
+
+      <form className="admin-form" onSubmit={addInspiration}>
+        <input name="title" placeholder="Reference title" required />
+        <input name="image" placeholder="Image path (for example /images/projects/..jpg)" required />
+        <input name="url" placeholder="Reference URL" required />
+        <input name="tags" placeholder="Tags comma-separated" />
+        <button className="btn" type="submit">Add Reference</button>
+      </form>
+
+      <div className="admin-project-list">
+        {inspirations.map((item) => (
+          <div key={item.id} className="admin-project-item">
+            <div>
+              <strong>{item.title}</strong>
+              <p>{item.url}</p>
+            </div>
+            <button className="btn btn-small btn-danger" onClick={() => removeInspiration(item.id)}>
               Delete
             </button>
           </div>

@@ -1,14 +1,17 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { blogPosts } from "@/lib/data";
 import { LeadForm } from "@/components/LeadForm";
 import { VisitorTracker } from "@/components/VisitorTracker";
+import { TrackedLink } from "@/components/TrackedLink";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Commercial Interior Guides | ArtTech24",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Commercial Interior Guides",
   description:
     "Articles on commercial interior cost, maintenance, and material choices for cafes, restaurants, hotels, and retail spaces.",
-};
+  path: "/blog",
+  keywords: ["interior design guide", "commercial interior tips", "interior cost articles"],
+});
 
 export default function BlogPage() {
   return (
@@ -20,9 +23,16 @@ export default function BlogPage() {
           <article key={post.slug} className="card blog-card">
             <h2>{post.title}</h2>
             <p>{post.excerpt}</p>
-            <Link href={`/blog/${post.slug}`} className="link-btn">
+            <TrackedLink
+              href={`/blog/${post.slug}`}
+              className="link-btn"
+              path="/blog"
+              section="blog_list"
+              target={`/blog/${post.slug}`}
+              label={post.title}
+            >
               Read Article
-            </Link>
+            </TrackedLink>
           </article>
         ))}
       </div>

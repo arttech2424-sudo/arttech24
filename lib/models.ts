@@ -22,7 +22,10 @@ const leadSchema = new Schema(
 const visitSchema = new Schema(
   {
     path: { type: String, required: true },
-    event: { type: String, enum: ["view", "exit"], required: true },
+    event: { type: String, enum: ["view", "exit", "click", "article_view", "faq_view"], required: true },
+    section: { type: String },
+    target: { type: String },
+    label: { type: String },
     durationMs: { type: Number },
     city: { type: String },
     region: { type: String },
@@ -49,6 +52,17 @@ const projectSchema = new Schema(
   { timestamps: true }
 );
 
+const inspirationSchema = new Schema(
+  {
+    title: { type: String, required: true },
+    image: { type: String, required: true },
+    url: { type: String, required: true },
+    tags: [{ type: String }],
+  },
+  { timestamps: true }
+);
+
 export const Lead = models.Lead || model("Lead", leadSchema);
 export const Visit = models.Visit || model("Visit", visitSchema);
 export const Project = models.Project || model("Project", projectSchema);
+export const Inspiration = models.Inspiration || model("Inspiration", inspirationSchema);

@@ -117,6 +117,28 @@ p { color: var(--text-sec); line-height: 1.72; }
   padding: 6px 12px; border-radius: 6px; transition: all var(--trans);
 }
 .nav-links a:hover { color: var(--brand); background: var(--brand-50); }
+.nav-actions-desktop { display: flex; align-items: center; gap: 10px; }
+.nav-profile {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); color: var(--dark); transition: all var(--trans);
+}
+.nav-profile:hover { color: var(--brand); border-color: #e1bea8; background: #fff5f0; }
+.nav-actions-mobile { display: none; }
+.icon-btn {
+  width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border);
+  background: #fff; color: var(--text-primary); display: inline-flex; align-items: center; justify-content: center;
+}
+.mobile-drawer {
+  max-height: 0; overflow: hidden; background: #fff; border-bottom: 1px solid transparent;
+  transition: max-height var(--trans), border-color var(--trans);
+}
+.mobile-drawer.open { max-height: 360px; border-color: var(--border); }
+.mobile-nav-links { display: flex; flex-direction: column; padding: 10px 20px 18px; gap: 4px; }
+.mobile-nav-links a {
+  padding: 10px 8px; border-radius: 8px; font-weight: 700; font-size: 0.92rem; color: var(--text-primary);
+}
+.mobile-nav-links a:hover { background: var(--surface); color: var(--brand); }
 
 /* ===== HERO ===== */
 .hero {
@@ -385,6 +407,8 @@ textarea { resize: vertical; min-height: 96px; }
 .site-footer { background: var(--black); padding: 56px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
 .footer-brand .brand { margin-bottom: 12px; display: block; }
+.footer-brand .brand,
+.footer-brand .brand span { color: #fff; }
 .footer-brand p { color: rgba(255,255,255,0.42); font-size: 0.86rem; margin: 0; }
 .footer-col h5 { color: rgba(255,255,255,0.35); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; font-family: inherit; }
 .footer-col a, .footer-col p { display: block; color: rgba(255,255,255,0.6); font-size: 0.86rem; margin-bottom: 8px; transition: color var(--trans); }
@@ -429,6 +453,14 @@ textarea { resize: vertical; min-height: 96px; }
 @media (max-width: 768px) {
   .section           { padding: 52px 0; }
   .nav-links         { display: none; }
+  .nav-actions-desktop { display: none; }
+  .nav-actions-mobile {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 8px;
+    align-items: center;
+  }
+  .nav-mobile-estimate { padding: 9px 14px; font-size: 0.78rem; }
   .hero-content      { padding: 40px 22px; }
   .option-cards      { grid-template-columns: repeat(2,1fr); }
   .tier-cards        { grid-template-columns: 1fr; }
@@ -497,6 +529,36 @@ textarea { resize: vertical; min-height: 96px; }
 /* cta-inner */
 .cta-inner          { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0; }
 
+/* faq */
+.faq-list { display: grid; gap: 10px; max-width: 900px; margin: 0 auto; }
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0 16px;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--dark);
+  padding: 14px 0;
+  position: relative;
+  padding-right: 28px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--brand);
+}
+.faq-item[open] summary::after { content: "-"; }
+.faq-item p { font-size: 0.9rem; padding-bottom: 14px; margin: 0; }
+
 @media (max-width: 1024px) {
   .why-split         { grid-template-columns: 1fr; }
   .why-image         { aspect-ratio: 16/9; min-height: 280px; }
@@ -504,6 +566,8 @@ textarea { resize: vertical; min-height: 96px; }
 @media (max-width: 768px) {
   .section-pad       { padding: 52px 0; }
   .hero-stats        { gap: 16px; }
+  .faq-item summary  { font-size: 0.92rem; }
+  .faq-item p        { font-size: 0.86rem; }
 }
 
 

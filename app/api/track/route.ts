@@ -5,7 +5,10 @@ import { Visit } from "@/lib/models";
 
 const schema = z.object({
   path: z.string().min(1),
-  event: z.enum(["view", "exit"]),
+  event: z.enum(["view", "exit", "click", "article_view", "faq_view"]),
+  section: z.string().optional(),
+  target: z.string().optional(),
+  label: z.string().optional(),
   durationMs: z.number().optional(),
 });
 
