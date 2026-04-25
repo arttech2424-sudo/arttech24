@@ -21,6 +21,10 @@ export default function ContactPage() {
           <p>Phone: <a href="tel:+919597217144">+91 9597217144</a></p>
           <p>Email: yamunaprabhu89@gmail.com</p>
           <p>WhatsApp: <a href="https://wa.me/919597217144" target="_blank" rel="noopener noreferrer">+91 9597217144</a></p>
+          <p><strong>Office Addresses</strong></p>
+          <p>Chennai: Guindy, Chennai, Tamil Nadu</p>
+          <p>Coimbatore: Gandhipuram, Coimbatore, Tamil Nadu</p>
+          <p>Bangalore: Indiranagar, Bengaluru, Karnataka</p>
           <p>Serving South India and global commercial projects.</p>
           <iframe
             title="ArtTech24 Map"

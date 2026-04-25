@@ -28,6 +28,7 @@ export function Footer() {
             <p><a href="tel:+919597217144">+91 9597217144</a></p>
             <p><a href="https://wa.me/919597217144" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></p>
             <p>yamunaprabhu89@gmail.com</p>
+            <p>Office: Chennai | Coimbatore | Bangalore</p>
             <p>1253+ Projects Delivered</p>
             <p>5 Countries Served</p>
           </div>

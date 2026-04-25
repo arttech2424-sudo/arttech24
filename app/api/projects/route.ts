@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { cookies } from "next/headers";
 import { connectDB } from "@/lib/db";
 import { Project } from "@/lib/models";
 import { projectSeeds } from "@/lib/data";
@@ -8,12 +7,7 @@ import { authOptions } from "@/lib/auth";
 
 async function isAdminAuthorized() {
   const session = await getServerSession(authOptions);
-  if (session?.user?.email) {
-    return true;
-  }
-
-  const mobileAuth = (await cookies()).get("admin_mobile_auth")?.value;
-  return !!mobileAuth;
+  return !!session?.user?.email;
 }
 
 export async function GET() {

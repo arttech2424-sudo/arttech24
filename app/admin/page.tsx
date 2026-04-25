@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { cookies } from "next/headers";
 import { authOptions } from "@/lib/auth";
 import { connectDB } from "@/lib/db";
 import { Lead, Visit, Project, Inspiration } from "@/lib/models";
@@ -9,11 +8,8 @@ import { AdminProjectManager } from "@/components/AdminProjectManager";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
-  const mobileAuth = (await cookies()).get("admin_mobile_auth")?.value;
-  const hasGoogleAuth = !!session?.user?.email;
-  const hasMobileAuth = !!mobileAuth;
 
-  if (!hasGoogleAuth && !hasMobileAuth) {
+  if (!session?.user?.email) {
     redirect("/admin/login");
   }
 
@@ -116,7 +112,7 @@ export default async function AdminPage() {
         </div>
         <div className="card metric">
           <h3>Logged-in Admin</h3>
-          <p>{session?.user?.name || session?.user?.email || `Mobile ${mobileAuth}`}</p>
+          <p>{session?.user?.name || session?.user?.email}</p>
         </div>
       </div>
 
