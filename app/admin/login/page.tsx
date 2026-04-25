@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
   return (
     <main className="container page-section admin-login">
       <h1>Admin Login</h1>
-      <p>Use Google sign-in or mobile OTP to access the ArtTech24 dashboard.</p>
+      <p>Use Google sign-in (yamunaprabhu89@gmail.com) or mobile OTP (+91 9597217144) to access the ArtTech24 dashboard.</p>
 
       <div className="toggle-options" style={{ maxWidth: 420, margin: "0 auto 14px" }}>
         <button
@@ -97,7 +97,7 @@ export default function AdminLoginPage() {
             <input
               id="phone"
               type="tel"
-              placeholder="+91XXXXXXXXXX"
+              placeholder="+919597217144"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required

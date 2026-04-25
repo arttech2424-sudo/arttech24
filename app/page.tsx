@@ -53,7 +53,7 @@ export default function Home() {
                 <TrackedLink href="/calculator" className="btn btn-primary" path="/" section="hero_cta" target="/calculator" label="Get Free Estimate">
                   Get Free Estimate
                 </TrackedLink>
-                <a href="tel:+918110000533" className={`${styles.callBtn} btn btn-outline-white`}>Call Us Now</a>
+                <a href="tel:+919597217144" className={`${styles.callBtn} btn btn-outline-white`}>Call Us Now</a>
               </div>
               <div className={styles.heroStats}>
                 <div className={styles.heroStat}><strong><AnimatedCounter end={7000} suffix="+" /></strong><span>Projects Completed</span></div>
@@ -231,7 +231,7 @@ export default function Home() {
             <TrackedLink href="/calculator" className="btn btn-primary btn-lg" path="/" section="bottom_cta" target="/calculator" label="Calculate Cost Now">
               Calculate Cost Now
             </TrackedLink>
-            <a href="https://wa.me/918110000533" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">WhatsApp Us</a>
+            <a href="https://wa.me/919597217144" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">WhatsApp Us</a>
           </div>
         </div>
       </section>

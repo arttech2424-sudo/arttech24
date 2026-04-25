@@ -1,5 +1,5 @@
 export function WhatsAppButton() {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918110000533";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919597217144";
   const message = encodeURIComponent("Hi ArtTech24, I need a commercial interior design quote.");
   const href = `https://wa.me/${phone}?text=${message}`;
 

@@ -2,10 +2,14 @@ import { NextResponse } from "next/server";
 
 const OTP_EXPIRY_MS = 5 * 60 * 1000;
 const DEFAULT_OTP = process.env.ADMIN_OTP_CODE || "246810";
-const allowedPhones = (process.env.ADMIN_OTP_PHONES || "")
+const allowedPhones = (process.env.ADMIN_OTP_PHONES || "9597217144,+919597217144")
   .split(",")
   .map((v) => v.trim())
   .filter(Boolean);
+
+function normalizePhone(value: string) {
+  return value.replace(/\D/g, "");
+}
 
 type OTPStore = Map<string, { code: string; expiresAt: number }>;
 
@@ -20,7 +24,12 @@ function isAllowedPhone(phone: string) {
   if (!allowedPhones.length) {
     return true;
   }
-  return allowedPhones.includes(phone);
+  const normalizedPhone = normalizePhone(phone);
+  const lastTen = normalizedPhone.slice(-10);
+  return allowedPhones.some((entry) => {
+    const normalizedEntry = normalizePhone(entry);
+    return normalizedEntry === normalizedPhone || normalizedEntry.slice(-10) === lastTen;
+  });
 }
 
 export async function POST(request: Request) {

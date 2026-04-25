@@ -18,9 +18,9 @@ export default function ContactPage() {
         <LeadForm source="contact" title="Get a Free Commercial Consultation" />
         <div className="card">
           <h3>Direct Contact</h3>
-          <p>Phone: <a href="tel:+918110000533">+91 8110000533</a></p>
-          <p>Email: hello@arttech24.com</p>
-          <p>WhatsApp: <a href="https://wa.me/918110000533" target="_blank" rel="noopener noreferrer">+91 8110000533</a></p>
+          <p>Phone: <a href="tel:+919597217144">+91 9597217144</a></p>
+          <p>Email: yamunaprabhu89@gmail.com</p>
+          <p>WhatsApp: <a href="https://wa.me/919597217144" target="_blank" rel="noopener noreferrer">+91 9597217144</a></p>
           <p>Serving South India and global commercial projects.</p>
           <iframe
             title="ArtTech24 Map"
