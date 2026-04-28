@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { trackEvent } from "@/lib/trackEvent";
@@ -16,11 +16,28 @@ const links = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 280);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header className="site-header">
       <div className="container nav-wrap">
-        <Link href="/" className="nav-logo-link" aria-label="ArtTech Home">
+        <Link
+          href="/"
+          className="nav-logo-link"
+          aria-label="ArtTech Home"
+          style={{
+            opacity: scrolled ? 1 : 0,
+            transition: "opacity 0.4s ease",
+            pointerEvents: scrolled ? "auto" : "none",
+          }}
+        >
           <Image
             src="/logo-01.png"
             alt="ArtTech logo"

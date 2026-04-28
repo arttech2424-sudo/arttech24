@@ -122,6 +122,8 @@ p { color: var(--text-sec); line-height: 1.72; }
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  will-change: transform, opacity;
+  transform-origin: left center;
 }
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {

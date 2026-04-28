@@ -9,6 +9,7 @@ import { AnimatedCounter } from "../components/AnimatedCounter";
 import { TrackedLink } from "@/components/TrackedLink";
 import { HomeFaq } from "../components/HomeFaq";
 import { buildPageMetadata } from "@/lib/seo";
+import { HeroLogo } from "@/components/HeroLogo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Commercial Interior Design at Factory Pricing",
@@ -83,7 +84,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroImageWrap}>
           <Image
-            src="/images/projects/home-1.png"
+            src="/images/projects/cover-bar-restaurant.jpeg"
             alt="ArtTech24 commercial interior"
             fill
             priority
@@ -92,16 +93,7 @@ export default function Home() {
           <div className={styles.heroOverlay} />
           <div className={`container ${styles.heroGrid}`}>
             <div className={styles.heroCopy}>
-              <div className={styles.heroLogoBrand}>
-                <Image
-                  src="/logo-01.png"
-                  alt="ArtTech"
-                  width={320}
-                  height={110}
-                  priority
-                  className={styles.heroLogoImg}
-                />
-              </div>
+              <HeroLogo />
               <span className={styles.heroBadge}>South India's #1 Commercial Interior Brand</span>
               <h1>Transform Your Commercial Space Into a Brand Statement</h1>
               <p>Premium interiors for cafes, restaurants, hotels and retail spaces, delivered on time and within budget.</p>

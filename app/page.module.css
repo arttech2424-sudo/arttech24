@@ -56,7 +56,6 @@
   height: auto;
   max-height: 110px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 .heroBadge {
