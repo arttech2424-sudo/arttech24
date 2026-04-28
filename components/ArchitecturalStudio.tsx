@@ -313,16 +313,21 @@ export function ArchitecturalStudio() {
               {/* Area */}
               <div className={styles.field}>
                 <label className={styles.label}>Area Metrics</label>
-                <div className={styles.sqftWrap}>
-                  <input
-                    type="number"
-                    className={styles.sqftInput}
-                    value={settings.squareFeet}
-                    onChange={(e) => setSettings((s) => ({ ...s, squareFeet: e.target.value }))}
-                    placeholder="e.g. 1500"
-                  />
-                  <span className={styles.sqftUnit}>SQ FT</span>
-                </div>
+                <select
+                  className={styles.sqftInput}
+                  value={settings.squareFeet}
+                  onChange={(e) => setSettings((s) => ({ ...s, squareFeet: e.target.value }))}
+                >
+                  <option value="300">Up to 300 sq ft</option>
+                  <option value="500">300 – 500 sq ft</option>
+                  <option value="750">500 – 750 sq ft</option>
+                  <option value="1000">750 – 1,000 sq ft</option>
+                  <option value="1500">1,000 – 1,500 sq ft</option>
+                  <option value="2000">1,500 – 2,000 sq ft</option>
+                  <option value="3000">2,000 – 3,000 sq ft</option>
+                  <option value="5000">3,000 – 5,000 sq ft</option>
+                  <option value="7500">5,000+ sq ft</option>
+                </select>
               </div>
 
               <button className={styles.generateBtn} onClick={generate} disabled={!previewImage}>

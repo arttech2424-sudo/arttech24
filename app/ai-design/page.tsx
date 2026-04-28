@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AIDesignGenerator } from "@/components/AIDesignGenerator";
+import { AIDesignTabs } from "@/components/AIDesignTabs";
 import { VisitorTracker } from "@/components/VisitorTracker";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -38,7 +39,9 @@ export default function AIDesignPage() {
         </div>
       </div>
 
-      <AIDesignGenerator />
+      <AIDesignTabs>
+        <AIDesignGenerator />
+      </AIDesignTabs>
     </main>
   );
 }

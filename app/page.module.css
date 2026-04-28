@@ -398,7 +398,8 @@
    COST CALCULATOR STRIP
 ═══════════════════════════════════════════════ */
 .calcStrip {
-  background: linear-gradient(135deg, var(--brand) 0%, #a84820 100%);
+  background: linear-gradient(135deg, #C75B2A 0%, #A84820 100%) !important;
+  background-color: #C75B2A !important;
   padding: 0;
 }
 

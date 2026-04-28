@@ -190,17 +190,19 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-sec);
+  border: 1.5px solid #d0cfc8;
+  background: #ffffff;
+  color: #444;
   transition: all 0.15s;
   text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-.optionBtn:hover { border-color: var(--brand); color: var(--brand); }
+.optionBtn:hover { border-color: var(--brand); color: var(--brand); background: rgba(199,91,42,0.04); }
 .optionBtnActive {
   background: var(--dark);
   color: var(--white);
   border-color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
 /* Palette buttons */
@@ -219,51 +221,57 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   cursor: pointer;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-sec);
+  border: 1.5px solid #d0cfc8;
+  background: #ffffff;
+  color: #444;
   transition: all 0.15s;
   text-align: left;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-.paletteBtn:hover { border-color: var(--brand); color: var(--brand); }
+.paletteBtn:hover { border-color: var(--brand); color: var(--brand); background: rgba(199,91,42,0.04); }
 .paletteBtnActive {
   background: var(--dark);
   color: var(--white);
   border-color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 .paletteSwatch {
-  width: 14px; height: 14px;
+  display: inline-block;
+  width: 16px; height: 16px;
   border-radius: 50%;
   flex-shrink: 0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  vertical-align: middle;
 }
 
-/* Area input */
+/* Area select dropdown */
 .sqftWrap { position: relative; }
 .sqftInput {
   width: 100%;
-  padding: 13px 54px 13px 16px;
-  border: 1px solid var(--border);
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
   border-radius: 12px;
   font-size: 0.9rem;
   font-family: var(--font-manrope), sans-serif;
-  background: var(--surface);
+  background: var(--white);
   color: var(--dark);
   outline: none;
   transition: border-color 0.2s;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
 }
-.sqftInput:focus { border-color: var(--brand); background: var(--white); }
-.sqftUnit {
-  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-muted); pointer-events: none;
-}
+.sqftInput:focus { border-color: #C75B2A; background: var(--white); }
 
 /* Generate button */
 .generateBtn {
   display: flex; align-items: center; justify-content: center; gap: 10px;
   width: 100%; padding: 17px;
-  background: var(--brand); color: var(--white);
+  background: #C75B2A !important; color: #fff !important;
   border: none; border-radius: 16px;
   font-family: var(--font-manrope), sans-serif;
   font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em;
