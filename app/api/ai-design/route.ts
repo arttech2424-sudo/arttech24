@@ -9,6 +9,8 @@ const schema = z.object({
   spaceType: z.string(),
   sqft: z.number().min(50).max(50000),
   designStyle: z.string(),
+  colorPalette: z.string().optional(),
+  spaceAnalysis: z.string().optional(), // from /api/ai-analyze
   customPrompt: z.string().optional(),
   images: z.array(z.string()).optional(), // base64 JPEG strings (no data: prefix)
 });
@@ -33,14 +35,24 @@ const SPACE_DESC: Record<string, string> = {
     "artisan bakery with glass product display counters, warm ambient lighting, bread and pastry showcase shelving, customer seating nook",
   Restaurant:
     "full-service restaurant with dining tables and chairs, ambient pendant lighting, bar counter, open or semi-open kitchen concept, host station",
+  Hotel:
+    "luxury hotel lobby or suite with reception desk, premium lounge seating, accent lighting, concierge area, premium materials and textures",
   "Jewellery Shop":
     "premium jewellery showroom with illuminated glass display cases, accent spotlights on products, secure display pedestals, VIP customer seating",
   "Coffee Shop":
     "specialty coffee shop with espresso bar counter, cozy lounge seating, communal tables, warm Edison bulb lighting, coffee aroma ambience",
   Theater:
     "entertainment venue or theater with tiered seating arrangement, dramatic stage lighting, acoustic wall panels, premium seat upholstery",
+  Parlor:
+    "high-end beauty or wellness parlor with treatment stations, soft ambient lighting, elegant mirrors, comfortable styling chairs, luxury finishes",
+  Gallery:
+    "contemporary art gallery with clean white walls, track spotlighting for artwork, polished floors, minimalist display pedestals, open flowing space",
+  Shop:
+    "premium retail shop with product display shelving, feature lighting, checkout counter, brand-aligned visual merchandising, inviting customer flow",
   Home:
     "residential living space with comfortable furniture arrangement, balanced natural and artificial lighting, personal décor accents",
+  Office:
+    "modern office space with open-plan workstations, collaboration zones, acoustic panels, brand-aligned decor, natural light integration",
   Others:
     "commercial interior space with functional furniture, professional lighting, clean and welcoming design",
 };
@@ -53,14 +65,27 @@ function buildPrompt(
   const styleDesc = STYLE_DESC[data.designStyle] ?? data.designStyle;
   const spaceDesc = SPACE_DESC[data.spaceType] ?? data.spaceType;
 
+  const isEmptySpace = data.spaceAnalysis?.toLowerCase().includes("empty");
+  const taskInstruction = isEmptySpace
+    ? "Transform this raw empty shell into a complete, fully-furnished"
+    : "Completely renovate and redesign this existing space into a stunning";
+
   const variationInstruction =
     variation === 1
       ? "Variation A: warm inviting colour palette, maximise customer appeal and brand identity, emphasise comfort and flow"
       : "Variation B: bold contemporary colour palette, maximise visual impact and space efficiency, emphasise modern aesthetics";
 
+  const paletteNote = data.colorPalette
+    ? `Signature Color Palette: ${data.colorPalette} — integrate this palette throughout materials, upholstery, accent walls, and decorative elements.`
+    : "";
+
+  const analysisNote = data.spaceAnalysis
+    ? `Space Intelligence: ${data.spaceAnalysis}`
+    : "";
+
   const refNote = (data.images?.length ?? 0) > 0
-    ? "Using the uploaded reference photo of the existing space as the base layout, redesign and transform it with the following specifications:"
-    : "Generate a brand-new interior design concept with the following specifications:";
+    ? `${taskInstruction} high-end ${data.designStyle} style ${data.spaceType}. Using the uploaded reference photo as the base layout:`
+    : `Generate a brand-new interior design concept for a high-end ${data.designStyle} style ${data.spaceType}:`;
 
   return `Photorealistic interior design render.
 
@@ -70,6 +95,8 @@ Space type: ${data.spaceType}
 Space details: ${spaceDesc}
 Floor area: approximately ${data.sqft} square feet
 Design style: ${data.designStyle} — ${styleDesc}
+${paletteNote}
+${analysisNote}
 ${variationInstruction}
 ${data.customPrompt ? `Client special requirements: ${data.customPrompt}` : ""}
 
