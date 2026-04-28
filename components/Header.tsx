@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { trackEvent } from "@/lib/trackEvent";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/portfolio", label: "Our Work" },
+  { href: "/ai-design", label: "✨ AI Design" },
   { href: "/explore", label: "Explore Ideas" },
   { href: "/blog", label: "Guides" },
   { href: "/contact", label: "Contact" },
@@ -18,8 +20,15 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container nav-wrap">
-        <Link href="/" className="brand">
-          Art<span>Tech</span>24
+        <Link href="/" className="nav-logo-link" aria-label="ArtTech Home">
+          <Image
+            src="/logo-01.png"
+            alt="ArtTech logo"
+            width={140}
+            height={48}
+            priority
+            style={{ height: 44, width: "auto", objectFit: "contain" }}
+          />
         </Link>
         <nav className="nav-links">
           {links.map((link) => (

@@ -19,12 +19,15 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const industries = [
-  { label: "Cafe Interiors", img: "/images/projects/Tobys-Cafe-for-cafe-inspriation.jpg" },
-  { label: "Restaurant Interiors", img: "/images/projects/Restaurant_7_.jpg" },
-  { label: "Bakery Interiors", img: "/images/projects/gMercato_SansaInteriors_BrunoBelli-4-min.webp" },
-  { label: "Hotel Interiors", img: "/images/projects/Hale_Toronto_4.webp" },
-  { label: "Office Interiors", img: "/images/projects/luxury-showroom-interior-design-trends-in-2024.webp" },
-  { label: "Retail Showrooms", img: "/images/projects/gMercato_SansaInteriors_GMercato.webp" },
+  { label: "Cafe Interiors", img: "/images/projects/home-2.png" },
+  { label: "Restaurant Interiors", img: "/images/projects/bar-and-resterent-1.jpeg" },
+  { label: "Bakery Interiors", img: "/images/projects/backery-2.png" },
+  { label: "Hotel Interiors", img: "/images/projects/hotal-2.png" },
+  { label: "Office Interiors", img: "/images/projects/theater-3.png" },
+  { label: "Retail Showrooms", img: "/images/projects/jewelry-shop-1.png" },
+  { label: "Cap & Fashion Stores", img: "/images/projects/home-3.png" },
+  { label: "Jewellery Showrooms", img: "/images/projects/jewelry-shop-2.png" },
+  { label: "Theater & Mall Spaces", img: "/images/projects/theater-5.png" },
 ];
 
 export default function Home() {
@@ -80,7 +83,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroImageWrap}>
           <Image
-            src="/images/projects/gMercato_SansaInteriors_Toronto+Cafe+Interior+Design.webp"
+            src="/images/projects/home-1.png"
             alt="ArtTech24 commercial interior"
             fill
             priority
@@ -89,6 +92,16 @@ export default function Home() {
           <div className={styles.heroOverlay} />
           <div className={`container ${styles.heroGrid}`}>
             <div className={styles.heroCopy}>
+              <div className={styles.heroLogoBrand}>
+                <Image
+                  src="/logo-01.png"
+                  alt="ArtTech"
+                  width={320}
+                  height={110}
+                  priority
+                  className={styles.heroLogoImg}
+                />
+              </div>
               <span className={styles.heroBadge}>South India's #1 Commercial Interior Brand</span>
               <h1>Transform Your Commercial Space Into a Brand Statement</h1>
               <p>Premium interiors for cafes, restaurants, hotels and retail spaces, delivered on time and within budget.</p>
@@ -255,11 +268,62 @@ export default function Home() {
             </div>
             <div className={styles.whyImage}>
               <Image
-                src="/images/projects/Restaurant_3_.jpg"
+                src="/images/projects/home-4.png"
                 alt="ArtTech24 quality interiors"
                 fill
                 style={{ objectFit: "cover", borderRadius: "var(--radius-lg)" }}
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── AI DESIGN GENERATOR CTA ── */}
+      <section className="section-pad">
+        <div className="container">
+          <div className={styles.aiCtaBanner}>
+            <div className={styles.aiCtaContent}>
+              <span className="section-eyebrow">✨ Powered by Google Gemini AI</span>
+              <h2>See Your Space Transformed in 60 Seconds</h2>
+              <p>
+                Upload your space photos or start from scratch — our AI generates 2
+                photorealistic design concepts tailored to your business type and
+                style. First design is completely free.
+              </p>
+              <div className={styles.aiCtaBadges}>
+                <span>✅ Free first generation</span>
+                <span>✅ Bakery · Restaurant · Café · Hotel · Jewellery · Theater</span>
+                <span>✅ Luxury · Premium · Classic · Modern · Traditional</span>
+              </div>
+              <div className={styles.aiCtaActions}>
+                <TrackedLink
+                  href="/ai-design"
+                  className="btn btn-primary btn-lg"
+                  path="/"
+                  section="ai_cta"
+                  target="/ai-design"
+                  label="Try AI Design Generator"
+                >
+                  ✨ Try AI Design Generator — Free
+                </TrackedLink>
+              </div>
+            </div>
+            <div className={styles.aiCtaVisual}>
+              <div className={styles.aiCtaCard}>
+                <div className={styles.aiCtaCardTop}>
+                  <span className={styles.aiCtaCardDot} style={{ background: "#ef4444" }} />
+                  <span className={styles.aiCtaCardDot} style={{ background: "#f59e0b" }} />
+                  <span className={styles.aiCtaCardDot} style={{ background: "#22c55e" }} />
+                </div>
+                <div className={styles.aiCtaMockup}>
+                  <div className={styles.aiMockStep}>📷 Upload space photos</div>
+                  <div className={styles.aiMockStep}>🏪 Select space type</div>
+                  <div className={styles.aiMockStep}>👑 Choose design style</div>
+                  <div className={`${styles.aiMockStep} ${styles.aiMockGenerate}`}>
+                    ✨ Generate 2 AI Designs
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

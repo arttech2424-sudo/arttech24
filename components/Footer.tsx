@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="brand">Art<span style={{color:"#C75B2A"}}>Tech</span>24</Link>
+            <Link href="/" className="brand">Art<span style={{color:"#C75B2A"}}>Tech</span></Link>
             <p>South India&apos;s premium commercial interior design brand. Factory-direct pricing with uncompromised quality.</p>
           </div>
           <div className="footer-col">

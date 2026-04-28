@@ -43,6 +43,22 @@
   max-width: 650px;
 }
 
+/* ── HERO LOGO BRAND ── */
+.heroLogoBrand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.heroLogoImg {
+  width: auto;
+  max-width: 320px;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
 .heroBadge {
   display: inline-flex;
   align-items: center;
@@ -505,4 +521,115 @@
   .whyImage {
     aspect-ratio: 4 / 5;
   }
+}
+
+/* ══ AI CTA Banner (homepage section) ══════════════════════ */
+.aiCtaBanner {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: center;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a04 60%, #2a1106 100%);
+  border-radius: 24px;
+  padding: 52px 52px;
+  overflow: hidden;
+  position: relative;
+}
+
+.aiCtaBanner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(199,91,42,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.aiCtaContent {
+  position: relative;
+  z-index: 1;
+}
+
+.aiCtaContent .section-eyebrow {
+  color: #F4956A;
+}
+
+.aiCtaContent h2 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 14px;
+}
+
+.aiCtaContent > p {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.96rem;
+  max-width: 500px;
+  margin-bottom: 22px;
+}
+
+.aiCtaBadges {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.aiCtaBadges span {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.82rem;
+}
+
+.aiCtaActions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Right visual card */
+.aiCtaVisual { position: relative; z-index: 1; }
+
+.aiCtaCard {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.aiCtaCardTop {
+  display: flex;
+  gap: 6px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.aiCtaCardDot {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+
+.aiCtaMockup {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aiMockStep {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+
+.aiMockGenerate {
+  background: rgba(199,91,42,0.22);
+  border-color: rgba(199,91,42,0.4);
+  color: #ffa977;
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .aiCtaBanner {
+    grid-template-columns: 1fr;
+    padding: 36px 28px;
+  }
+  .aiCtaVisual { display: none; }
 }

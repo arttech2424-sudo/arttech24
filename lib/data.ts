@@ -93,6 +93,86 @@ export const projectSeeds: ProjectSeed[] = [
     ],
     tags: ["retail showroom interior design", "low cost premium interiors"],
   },
+  {
+    slug: "bakery-interior-design-coimbatore-bread-story",
+    title: "Bakery Interior Design in Coimbatore - Bread Story",
+    businessType: "Bakery",
+    clientName: "Bread Story",
+    location: "Coimbatore",
+    description:
+      "A warm bakery concept with optimized product display zoning, easy-clean counters, and durable daily-use finishes.",
+    images: [
+      "/images/projects/backery-1.png",
+      "/images/projects/backery-3.png",
+      "/images/projects/backery-5.png",
+      "/images/projects/backery-6.png",
+    ],
+    tags: ["bakery interior design coimbatore", "commercial bakery interiors"],
+  },
+  {
+    slug: "bar-restaurant-interior-design-chennai-copper-room",
+    title: "Bar and Restaurant Interior Design in Chennai - Copper Room",
+    businessType: "Restaurant",
+    clientName: "Copper Room",
+    location: "Chennai",
+    description:
+      "An upscale bar-restaurant layout focused on guest flow, mood lighting, and premium materials built for high-traffic service.",
+    images: [
+      "/images/projects/bar-and-resterent-1.jpeg",
+      "/images/projects/bar-and-resterent-2.png",
+      "/images/projects/bar-and-resterent-3.png",
+      "/images/projects/bar-and-resterent-1.png",
+    ],
+    tags: ["bar restaurant interior design chennai", "premium restaurant interiors"],
+  },
+  {
+    slug: "hotel-interior-design-bengaluru-grand-nest",
+    title: "Hotel Interior Design in Bengaluru - Grand Nest",
+    businessType: "Hotel",
+    clientName: "Grand Nest",
+    location: "Bengaluru",
+    description:
+      "A hospitality design package with reception-forward planning, elegant wall treatments, and long-life material specifications.",
+    images: [
+      "/images/projects/hotal.png",
+      "/images/projects/hotal-2.png",
+      "/images/projects/hotal-3.png",
+      "/images/projects/hotal-4.png",
+    ],
+    tags: ["hotel interior design bengaluru", "hospitality interior design"],
+  },
+  {
+    slug: "jewelry-showroom-interior-design-hyderabad-aurum-house",
+    title: "Jewelry Showroom Interior Design in Hyderabad - Aurum House",
+    businessType: "Retail",
+    clientName: "Aurum House",
+    location: "Hyderabad",
+    description:
+      "A premium jewelry showroom concept with curated product spotlighting, secure display planning, and polished luxury finishes.",
+    images: [
+      "/images/projects/jewelry-shop-1.png",
+      "/images/projects/jewelry-shop-2.png",
+      "/images/projects/jewelry-shop-3.png",
+      "/images/projects/home-3.png",
+    ],
+    tags: ["jewelry showroom interior design", "luxury retail interiors"],
+  },
+  {
+    slug: "experience-center-interior-design-mumbai-frame-theater",
+    title: "Experience Center Interior Design in Mumbai - Frame Theater",
+    businessType: "Retail",
+    clientName: "Frame Theater",
+    location: "Mumbai",
+    description:
+      "An immersive experience-center design with dramatic lighting layers, acoustic-conscious surfaces, and premium visitor circulation.",
+    images: [
+      "/images/projects/theater-1.png",
+      "/images/projects/theater-2.png",
+      "/images/projects/theater-4.png",
+      "/images/projects/theater-6.png",
+    ],
+    tags: ["experience center interior design", "thematic commercial interiors"],
+  },
 ];
 
 export const blogPosts = [
