@@ -394,8 +394,117 @@
   overflow: hidden;
 }
 
+/* ═══════════════════════════════════════════════
+   COST CALCULATOR STRIP
+═══════════════════════════════════════════════ */
+.calcStrip {
+  background: linear-gradient(135deg, var(--brand) 0%, #a84820 100%);
+  padding: 0;
+}
+
+.calcStripInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 36px 0;
+  flex-wrap: wrap;
+}
+
+.calcStripLeft {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+.calcStripIcon {
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.calcStripText h3 {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.1rem; font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.calcStripText p {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+.calcStripPrices {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.calcPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.calcPrice strong {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  display: block;
+}
+
+.calcPrice span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.7);
+}
+
+.calcStripBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #fff;
+  color: var(--brand);
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.calcStripBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  color: var(--brand);
+}
+
+@media (max-width: 768px) {
+  .calcStripInner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .calcStripPrices { display: none; }
+  .calcStripBtn { width: 100%; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════════
+   BOTTOM CTA DARK SECTION
+═══════════════════════════════════════════════ */
 .ctaSection {
   position: relative;
+  background: #0d0d0d !important;
+  overflow: hidden;
 }
 
 .ctaSection::before {
@@ -403,12 +512,64 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(199, 91, 42, 0.13) 0%, rgba(14, 30, 20, 0.14) 100%);
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(199, 91, 42, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 50%, rgba(199, 91, 42, 0.2) 0%, transparent 55%);
 }
 
 .ctaInner {
   position: relative;
   z-index: 1;
+}
+
+.ctaInner h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.ctaInner p {
+  font-size: 1.02rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtons :global(.btn) {
+  min-width: 200px;
+  justify-content: center;
+}
+
+.ctaButtons :global(.btn-primary) {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(199,91,42,0.4);
+}
+
+.ctaButtons :global(.btn-primary:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(199,91,42,0.55);
+}
+
+.ctaButtons :global(.btn-outline-white) {
+  background: transparent !important;
+  border: 2px solid rgba(255,255,255,0.7) !important;
+  color: #fff !important;
+}
+
+.ctaButtons :global(.btn-outline-white:hover) {
+  background: #fff !important;
+  color: var(--dark) !important;
 }
 
 @media (min-width: 640px) {

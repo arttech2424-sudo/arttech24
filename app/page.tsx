@@ -209,6 +209,43 @@ export default function Home() {
 
       <HomeFaq />
 
+      {/* ── COST CALCULATOR STRIP ── */}
+      <section className={styles.calcStrip}>
+        <div className={`container ${styles.calcStripInner}`}>
+          <div className={styles.calcStripLeft}>
+            <div className={styles.calcStripIcon}>🧮</div>
+            <div className={styles.calcStripText}>
+              <h3>Know Your Budget Before You Begin</h3>
+              <p>Get a realistic cost estimate in under 2 minutes — no sign-up required.</p>
+            </div>
+          </div>
+          <div className={styles.calcStripPrices}>
+            <div className={styles.calcPrice}>
+              <strong>₹800+</strong>
+              <span>per sq.ft</span>
+            </div>
+            <div className={styles.calcPrice}>
+              <strong>₹1,100+</strong>
+              <span>Premium tier</span>
+            </div>
+            <div className={styles.calcPrice}>
+              <strong>₹1,600+</strong>
+              <span>Luxury tier</span>
+            </div>
+          </div>
+          <TrackedLink
+            href="/calculator"
+            className={styles.calcStripBtn}
+            path="/"
+            section="calc_strip"
+            target="/calculator"
+            label="Calculate My Project Cost"
+          >
+            Calculate My Project Cost →
+          </TrackedLink>
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ── */}
       <section className="section-pad">
         <div className="container">
@@ -326,11 +363,11 @@ export default function Home() {
         <div className={`container cta-inner ${styles.ctaInner}`}>
           <h2>Ready to Transform Your Space?</h2>
           <p>Get a free cost estimate in under 2 minutes. No commitment required.</p>
-          <div className="cta-actions">
+          <div className={styles.ctaButtons}>
             <TrackedLink href="/calculator" className="btn btn-primary btn-lg" path="/" section="bottom_cta" target="/calculator" label="Calculate Cost Now">
-              Calculate Cost Now
+              🧮 Calculate Cost Now
             </TrackedLink>
-            <a href="https://wa.me/919597217144" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">WhatsApp Us</a>
+            <a href="https://wa.me/919597217144" target="_blank" rel="noopener noreferrer" className="btn btn-outline-white btn-lg">WhatsApp Us</a>
           </div>
         </div>
       </section>
